@@ -1,0 +1,107 @@
+﻿<Page x:Class="DesktopDemo.LoginScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="LoginScreen"
+      Background="#EAF4FB">
+
+    <Grid>
+
+        <!-- GRID STRUKTURA -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- NASLOV -->
+        <TextBlock Text="POLIKLINIKA"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="#1E4F7A"
+                   HorizontalAlignment="Center"
+                   Margin="0,40,0,20"
+                   Grid.Row="0"/>
+
+        <!-- LOGIN FORMA -->
+        <Border Width="380"
+                Padding="30"
+                Background="White"
+                CornerRadius="14"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1"
+                Grid.Row="1">
+
+            <StackPanel>
+
+                <!-- NASLOV -->
+                <TextBlock Text="Prijava na sistem"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#1E4F7A"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- USERNAME -->
+                <TextBlock Text="Username"
+                           Margin="0,5,0,5"
+                           Foreground="#444"/>
+
+                <TextBox x:Name="usernameTextBox"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- PASSWORD -->
+                <TextBlock Text="Password"
+                           Margin="0,15,0,5"
+                           Foreground="#444"/>
+
+                <PasswordBox x:Name="passwordTextBox"
+                             Height="35"
+                             Background="#F5F7FA"
+                             BorderBrush="#D0D7DE"
+                             Padding="8"
+                             BorderThickness="1"/>
+
+                <!-- LOGIN BUTTON -->
+                <Button Content="Prijava"
+                        Height="38"
+                        Margin="0,20,0,5"
+                        Background="#0B5ED7"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="LoginButtonClick"/>
+
+                <!-- REGISTRATION BUTTON -->
+                <Button x:Name="RegistrationButton"
+                        Content="Registracija"
+                        Height="38"
+                        Margin="0,5,0,10"
+                        Background="#A8C8FF"
+                        Foreground="Black"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="RegistrationButton_Click"/>
+
+                <!-- LINK -->
+                <TextBlock HorizontalAlignment="Center"
+                           FontSize="12"
+                           Foreground="#666">
+
+                    <Run Text="Zaboravili ste lozinku? "/>
+                    <Run Text="Kreiraj račun"
+                         Foreground="#0B5ED7"
+                         TextDecorations="Underline"/>
+                </TextBlock>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>

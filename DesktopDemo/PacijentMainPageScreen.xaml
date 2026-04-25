@@ -1,0 +1,72 @@
+﻿<Page x:Class="DesktopDemo.HomeScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="HomeScreen"
+      Background="#EAF4FB">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- NAV BAR -->
+        <Border Grid.Row="0"
+                Background="#0B5ED7"
+                Padding="10">
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="WelcomeText"
+                           Text="Dobrodošao, Pacijent"
+                           Foreground="White"
+                           FontSize="18"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"/>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center">
+
+                    <Button Content="Moji zahtjevi"
+                            Margin="0,0,10,0"
+                            Padding="10,5"
+                            Background="Transparent"
+                            Foreground="White"
+                            BorderBrush="White"
+                            BorderThickness="1"
+                            Cursor="Hand"/>
+
+                    <Button Content="Kreiraj zahtjev"
+                            Padding="10,5"
+                            Background="White"
+                            Foreground="#0B5ED7"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                </StackPanel>
+
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1">
+
+            <TextBlock Text="Dashboard"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="28"
+                       FontWeight="Bold"
+                       Foreground="#1E4F7A"/>
+
+        </Grid>
+
+    </Grid>
+</Page>

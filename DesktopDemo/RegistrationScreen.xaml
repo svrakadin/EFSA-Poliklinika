@@ -1,0 +1,119 @@
+﻿<Page x:Class="DesktopDemo.RegistrationScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="RegistrationScreen"
+      Background="#EAF4FB">
+
+    <Grid>
+
+        <!-- CENTRIRANI KARTON -->
+        <Border Width="420"
+                Padding="30"
+                Background="White"
+                CornerRadius="14"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1">
+
+            <StackPanel>
+
+                <!-- NASLOV -->
+                <TextBlock Text="Registracija"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#1E4F7A"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- IME -->
+                <TextBlock Text="Ime"
+                           Margin="0,5,0,5"
+                           Foreground="#444"/>
+                <TextBox x:Name="Name"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- PREZIME -->
+                <TextBlock Text="Prezime"
+                           Margin="0,10,0,5"
+                           Foreground="#444"/>
+                <TextBox x:Name="Surname"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- 🔐 PASSWORD (DODANO) -->
+                <TextBlock Text="Lozinka"
+                           Margin="0,10,0,5"
+                           Foreground="#444"/>
+                <PasswordBox x:Name="Password"
+                             Height="35"
+                             Background="#F5F7FA"
+                             BorderBrush="#D0D7DE"
+                             Padding="8"
+                             BorderThickness="1"/>
+
+                <!-- DATUM -->
+                <TextBlock Text="Datum rođenja"
+                           Margin="0,10,0,5"
+                           Foreground="#444"/>
+                <DatePicker x:Name="Date"
+                            Height="35"/>
+
+                <!-- GRAD -->
+                <TextBlock Text="Grad rođenja"
+                           Margin="0,10,0,5"
+                           Foreground="#444"/>
+                <TextBox x:Name="City"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- CHECKBOX -->
+                <CheckBox x:Name="tosCheckBox"
+                          Content="Saglasan sam sa uslovima korištenja sistema"
+                          Margin="0,15,0,10"
+                          Foreground="#444"/>
+
+                <!-- BUTTONS -->
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,10,0,0">
+
+                    <Button x:Name="Cancel"
+                            Content="Odustani"
+                            Width="120"
+                            Height="38"
+                            Margin="0,0,10,0"
+                            Background="#E59E9E"
+                            Foreground="Black"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Cursor="Hand"/>
+
+                    <Button x:Name="Submit"
+                            Content="Pošalji"
+                            Width="120"
+                            Height="38"
+                            Background="#0B5ED7"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="SubmitButtonClick"/>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Page>
