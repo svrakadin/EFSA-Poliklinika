@@ -8,15 +8,20 @@ namespace DesktopDemo
         public HomeScreen(string userName)
         {
             InitializeComponent();
-            WelcomeText.Text = "Dobrodošao, " + userName;
+            WelcomeText.Text = GetWelcomeMessage(userName);
         }
 
-        private void CreateRequest_Click(object sender, System.Windows.RoutedEventArgs e)
+        public static string GetWelcomeMessage(string userName)
+        {
+            return "Dobrodošao, " + userName;
+        }
+
+        private void CreateRequest_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new CreateRequestScreen());
         }
 
-        private void MojiZahtjevi_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void MojiZahtjevi_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new RequestsScreen());
         }

@@ -21,6 +21,18 @@ namespace DesktopDemo
             NavigationService.Navigate(new RegistrationScreen());
         }
 
+        public static User Authenticate(string userName, string password, string filePath)
+        {
+            if (!File.Exists(filePath))
+                return null;
+
+            string json = File.ReadAllText(filePath);
+            List<User> users = JsonConvert.DeserializeObject<List<User>>(json) ?? new List<User>();
+
+            return users.FirstOrDefault(u =>
+                u.Name == userName && u.Password == password);
+        }
+
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
             string userName = usernameTextBox.Text;
@@ -29,27 +41,20 @@ namespace DesktopDemo
             string folderPath = @"C:\Users\dinsv\OneDrive\Desktop\EFSA-Poliklinika\DesktopDemo\Data";
             string filePath = Path.Combine(folderPath, "users.json");
 
-            if (!File.Exists(filePath))
+            User foundUser = Authenticate(userName, password, filePath);
+
+            if (foundUser == null)
             {
-                MessageBox.Show("No registered users found.");
+                if (!File.Exists(filePath))
+                    MessageBox.Show("No registered users found.");
+                else
+                    MessageBox.Show("Invalid username or password. Please try again.");
+
                 return;
             }
 
-            string json = File.ReadAllText(filePath);
-            List<User> users = JsonConvert.DeserializeObject<List<User>>(json) ?? new List<User>();
-
-            User foundUser = users.FirstOrDefault(u =>
-                u.Name == userName && u.Password == password);
-
-            if (foundUser != null)
-            {
-                Session.UserName = foundUser.Name;
-                NavigationService.Navigate(new HomeScreen(foundUser.Name));
-            }
-            else
-            {
-                MessageBox.Show("Invalid username or password. Please try again.");
-            }
+            Session.UserName = foundUser.Name;
+            NavigationService.Navigate(new HomeScreen(foundUser.Name));
         }
     }
 }

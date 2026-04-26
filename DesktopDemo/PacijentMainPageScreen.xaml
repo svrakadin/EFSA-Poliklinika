@@ -24,6 +24,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="WelcomeText"
+                           x:FieldModifier="public"
                            Text="Dobrodošao, Pacijent"
                            Foreground="White"
                            FontSize="18"

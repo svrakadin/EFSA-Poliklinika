@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="DesktopDemo.Tests/DesktopDemo.Tests.csproj" Id="e48f8c2d-0440-49c5-a5e6-755c7e71a511" />
   <Project Path="DesktopDemo/EFSAPoliklinika.csproj" Id="3083f55e-7dd2-4241-abdd-2e475164bc40" />
 </Solution>

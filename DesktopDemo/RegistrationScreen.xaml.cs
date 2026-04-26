@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -17,39 +18,62 @@ namespace DesktopDemo
 
         private void SubmitButtonClick(object sender, RoutedEventArgs e)
         {
-            bool userAcceptedToS = tosCheckBox.IsChecked == true;
-
-            if (!userAcceptedToS)
-            {
-                MessageBox.Show("You must accept the Terms of Service to register.");
-                return;
-            }
-
-            string firstName = Name.Text;
-            string lastName = Surname.Text;
-            string homeTown = City.Text;
-            string password = Password.Password;
-
-            if (Date.SelectedDate == null)
-            {
-                MessageBox.Show("Please select date of birth.");
-                return;
-            }
-
-            DateTime dateOfBirth = Date.SelectedDate.Value;
-
             string folderPath = @"C:\Users\dinsv\OneDrive\Desktop\EFSA-Poliklinika\DesktopDemo\Data";
             string filePath = Path.Combine(folderPath, "users.json");
 
-            if (!Directory.Exists(folderPath))
+            var result = RegisterUser(
+                Name.Text,
+                Surname.Text,
+                City.Text,
+                Password.Password,
+                Date.SelectedDate,
+                tosCheckBox.IsChecked == true,
+                filePath
+            );
+
+            if (!result.success)
             {
-                Directory.CreateDirectory(folderPath);
+                if (result.message == "TOS")
+                    MessageBox.Show("You must accept the Terms of Service to register.");
+                else if (result.message == "DATE")
+                    MessageBox.Show("Please select date of birth.");
+                else if (result.message == "FIELDS")
+                    MessageBox.Show("All fields are required.");
+
+                return;
             }
 
+            Session.UserName = Name.Text;
+
+            MessageBox.Show("Registration successful!");
+            NavigationService.Navigate(new HomeScreen(Name.Text));
+        }
+
+        public static (bool success, string message) RegisterUser(
+            string firstName,
+            string lastName,
+            string homeTown,
+            string password,
+            DateTime? dateOfBirth,
+            bool acceptedTos,
+            string filePath)
+        {
+            if (!acceptedTos)
+                return (false, "TOS");
+
+            if (dateOfBirth == null)
+                return (false, "DATE");
+
+            if (string.IsNullOrWhiteSpace(firstName) ||
+                string.IsNullOrWhiteSpace(lastName) ||
+                string.IsNullOrWhiteSpace(homeTown) ||
+                string.IsNullOrWhiteSpace(password))
+                return (false, "FIELDS");
+
+            string folderPath = Path.GetDirectoryName(filePath);
+
             if (!Directory.Exists(folderPath))
-            {
                 Directory.CreateDirectory(folderPath);
-            }
 
             List<User> users = new List<User>();
 
@@ -73,21 +97,16 @@ namespace DesktopDemo
                 Name = firstName,
                 Surname = lastName,
                 City = homeTown,
-                DateOfBirth = dateOfBirth,
+                DateOfBirth = dateOfBirth.Value,
                 Password = password
             };
 
             users.Add(newUser);
 
-            User foundUser = users.FirstOrDefault(u =>
-                u.Name == firstName);
-            Session.UserName = foundUser.Name;
-
             string json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(filePath, json);
 
-            MessageBox.Show("Registration successful!");
-            NavigationService.Navigate(new HomeScreen(firstName));
+            return (true, "OK");
         }
     }
 }

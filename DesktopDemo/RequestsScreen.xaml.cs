@@ -20,18 +20,21 @@ namespace DesktopDemo
             string folderPath = @"C:\Users\dinsv\OneDrive\Desktop\EFSA-Poliklinika\DesktopDemo\Data";
             string filePath = Path.Combine(folderPath, "zahtjevi.json");
 
+            RequestsList.ItemsSource = LoadRequestsFromFile(filePath);
+        }
+
+        public static List<Zahtjev> LoadRequestsFromFile(string filePath)
+        {
             if (!File.Exists(filePath))
-            {
-                RequestsList.ItemsSource = new List<Zahtjev>();
-                return;
-            }
+                return new List<Zahtjev>();
 
             string json = File.ReadAllText(filePath);
 
-            List<Zahtjev> zahtjevi = JsonConvert.DeserializeObject<List<Zahtjev>>(json)
-                                    ?? new List<Zahtjev>();
+            if (string.IsNullOrWhiteSpace(json))
+                return new List<Zahtjev>();
 
-            RequestsList.ItemsSource = zahtjevi;
+            return JsonConvert.DeserializeObject<List<Zahtjev>>(json)
+                   ?? new List<Zahtjev>();
         }
 
         private void CreateRequest_Click(object sender, RoutedEventArgs e)
