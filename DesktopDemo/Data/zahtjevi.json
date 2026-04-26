@@ -1,0 +1,47 @@
+[
+  {
+    "TipPregleda": "Kontrolni pregled - kardiolog",
+    "Datum": "30.04.2026",
+    "Vrijeme": "15:00",
+    "Specijalista": "Dr. Marko Jović",
+    "Mjesto": "Sarajevo",
+    "Karton": "A-1029",
+    "Status": "NA ČEKANJU"
+  },
+  {
+    "TipPregleda": "Dermatološki pregled",
+    "Datum": "02.05.2026",
+    "Vrijeme": "09:30",
+    "Specijalista": "Dr. Lejla Hadžić",
+    "Mjesto": "Mostar",
+    "Karton": "B-3381",
+    "Status": "FINALIZIRANO"
+  },
+  {
+    "TipPregleda": "Neurologija - konsultacija",
+    "Datum": "05.05.2026",
+    "Vrijeme": "11:15",
+    "Specijalista": "Dr. Amar Kovač",
+    "Mjesto": "Tuzla",
+    "Karton": "C-7782",
+    "Status": "ODBIJENO"
+  },
+  {
+    "TipPregleda": "Ortopedski pregled",
+    "Datum": "08.05.2026",
+    "Vrijeme": "13:45",
+    "Specijalista": "Dr. Haris Mešić",
+    "Mjesto": "Zenica",
+    "Karton": "D-4450",
+    "Status": "NA ČEKANJU"
+  },
+  {
+    "TipPregleda": "Laboratorijska analiza krvi",
+    "Datum": "10.05.2026",
+    "Vrijeme": "08:00",
+    "Specijalista": "Lab Tim Poliklinike",
+    "Mjesto": "Sarajevo",
+    "Karton": "E-9901",
+    "Status": "FINALIZIRANO"
+  }
+]

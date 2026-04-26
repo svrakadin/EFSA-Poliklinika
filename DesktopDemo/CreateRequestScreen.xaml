@@ -1,0 +1,94 @@
+﻿<Page x:Class="DesktopDemo.CreateRequestScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="CreateRequestScreen"
+      Background="#EAF4FB">
+
+    <Grid>
+
+        <!-- CENTRIRANI KARTON (LOGIN STYLE) -->
+        <Border Width="420"
+                Padding="30"
+                Background="White"
+                CornerRadius="14"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="#E0E0E0"
+                BorderThickness="1">
+
+            <StackPanel>
+
+                <TextBlock Text="Kreiraj zahtjev"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#1E4F7A"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <!-- TIP PREGLEDA -->
+                <TextBlock Text="Tip pregleda" Margin="0,5,0,5" Foreground="#444"/>
+                <TextBox x:Name="ExamType"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- DATUM -->
+                <TextBlock Text="Datum" Margin="0,10,0,5" Foreground="#444"/>
+                <DatePicker x:Name="Date"
+                            Height="35"/>
+
+                <!-- VRIJEME -->
+                <TextBlock Text="Vrijeme" Margin="0,10,0,5" Foreground="#444"/>
+                <TextBox x:Name="Time"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- SPECIJALISTA -->
+                <TextBlock Text="Specijalista" Margin="0,10,0,5" Foreground="#444"/>
+                <TextBox x:Name="Specialist"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- MJESTO PREBIVALIŠTA -->
+                <TextBlock Text="Mjesto prebivališta" Margin="0,10,0,5" Foreground="#444"/>
+                <TextBox x:Name="Residence"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- ZDRAVSTVENI KARTON -->
+                <TextBlock Text="Broj zdravstvenog kartona" Margin="0,10,0,5" Foreground="#444"/>
+                <TextBox x:Name="HealthCard"
+                         Height="35"
+                         Background="#F5F7FA"
+                         BorderBrush="#D0D7DE"
+                         Padding="8"
+                         BorderThickness="1"/>
+
+                <!-- BUTTON -->
+                <Button Content="Pošalji zahtjev"
+                        Height="38"
+                        Margin="0,20,0,0"
+                        Background="#0B5ED7"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        BorderThickness="0"
+                        Cursor="Hand"
+                        Click="SubmitRequest_Click"/>
+
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Page>

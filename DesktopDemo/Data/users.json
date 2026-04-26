@@ -1,30 +1,9 @@
 [
   {
-    "Name": "Din",
-    "Surname": "Svraka",
-    "City": "Sarajevo",
-    "Password": null,
-    "DateOfBirth": "2026-04-09T00:00:00"
-  },
-  {
-    "Name": "Pero",
-    "Surname": "Peric",
-    "City": "Tuzla",
-    "Password": null,
-    "DateOfBirth": "2026-04-23T00:00:00"
-  },
-  {
     "Name": "test",
     "Surname": "test",
     "City": "test",
     "Password": "test",
     "DateOfBirth": "2026-04-09T00:00:00"
-  },
-  {
-    "Name": "test",
-    "Surname": "testic",
-    "City": "Tuzla",
-    "Password": "test",
-    "DateOfBirth": "2026-04-02T00:00:00"
   }
 ]

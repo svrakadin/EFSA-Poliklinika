@@ -79,11 +79,15 @@ namespace DesktopDemo
 
             users.Add(newUser);
 
+            User foundUser = users.FirstOrDefault(u =>
+                u.Name == firstName);
+            Session.UserName = foundUser.Name;
+
             string json = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(filePath, json);
 
             MessageBox.Show("Registration successful!");
-            NavigationService.Navigate(new HomeScreen());
+            NavigationService.Navigate(new HomeScreen(firstName));
         }
     }
 }

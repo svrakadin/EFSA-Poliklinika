@@ -43,7 +43,8 @@ namespace DesktopDemo
 
             if (foundUser != null)
             {
-                NavigationService.Navigate(new HomeScreen());
+                Session.UserName = foundUser.Name;
+                NavigationService.Navigate(new HomeScreen(foundUser.Name));
             }
             else
             {

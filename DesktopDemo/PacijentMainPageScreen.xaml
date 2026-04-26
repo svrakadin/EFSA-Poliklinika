@@ -41,15 +41,28 @@
                             Foreground="White"
                             BorderBrush="White"
                             BorderThickness="1"
-                            Cursor="Hand"/>
+                            Cursor="Hand"
+                            Click="MojiZahtjevi_Click"/>
 
                     <Button Content="Kreiraj zahtjev"
+                            Margin="0,0,10,0"
                             Padding="10,5"
                             Background="White"
                             Foreground="#0B5ED7"
                             FontWeight="Bold"
                             BorderThickness="0"
-                            Cursor="Hand"/>
+                            Cursor="Hand"
+                            Click="CreateRequest_Click"/>
+
+                    <!-- 🔴 LOGOUT -->
+                    <Button Content="Logout"
+                            Padding="10,5"
+                            Background="#FF4D4D"
+                            Foreground="White"
+                            FontWeight="Bold"
+                            BorderThickness="0"
+                            Cursor="Hand"
+                            Click="Logout_Click"/>
 
                 </StackPanel>
 
@@ -57,16 +70,114 @@
         </Border>
 
         <!-- CONTENT -->
-        <Grid Grid.Row="1">
+        <ScrollViewer Grid.Row="1">
 
-            <TextBlock Text="Dashboard"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="28"
+            <StackPanel Margin="20">
+
+                <!-- HEADER -->
+                <TextBlock Text="Vaš digitalni zdravstveni centar"
+                           FontSize="26"
+                           FontWeight="Bold"
+                           Foreground="#1E4F7A"
+                           Margin="0,0,0,20"/>
+
+                <!-- IMAGE -->
+                <Border Height="180"
+        CornerRadius="12"
+        Margin="0,0,0,20"
+        ClipToBounds="True">
+
+                    <Grid>
+
+                        <Image Source="https://images.unsplash.com/photo-1580281658628-3f1f9b5b2a2f"
+               Stretch="Fill"/>
+
+                        <Border Background="#800B5ED7"/>
+
+                        <StackPanel HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="20">
+
+                            <TextBlock Text="Dobrodošli u Poliklinika sistem"
+                       FontSize="22"
                        FontWeight="Bold"
-                       Foreground="#1E4F7A"/>
+                       Foreground="White"/>
 
-        </Grid>
+                            <TextBlock Text="Vaš digitalni zdravstveni centar"
+                       FontSize="14"
+                       Foreground="#E6FFFFFF"
+                       Margin="0,5,0,0"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </Border>
+
+                <!-- GRID CARDS -->
+                <UniformGrid Columns="2" Margin="0,0,0,20">
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="📅 Upravljanje rezervacijama" FontWeight="Bold"/>
+                            <TextBlock Text="Pregled i zakazivanje termina kod ljekara." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="💊 Upravljanje lijekovima" FontWeight="Bold"/>
+                            <TextBlock Text="Evidencija terapije i podsjetnici za lijekove." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="🎓 Studentske prakse" FontWeight="Bold"/>
+                            <TextBlock Text="Prijave i evidencija studentske prakse u klinici." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="⭐ QA sesija i recenzije" FontWeight="Bold"/>
+                            <TextBlock Text="Ocjene usluge i povratne informacije pacijenata." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="📡 Telemedicina" FontWeight="Bold"/>
+                            <TextBlock Text="Online konsultacije sa ljekarima u realnom vremenu." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="📚 Edukativni sadržaj" FontWeight="Bold"/>
+                            <TextBlock Text="Zdravstveni savjeti i edukativni materijali." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="📦 Upravljanje inventarom" FontWeight="Bold"/>
+                            <TextBlock Text="Praćenje medicinske opreme i zaliha." TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Margin="10" Padding="15" Background="White" CornerRadius="10">
+                        <StackPanel>
+                            <TextBlock Text="📞 Kontakt informacije" FontWeight="Bold"/>
+                            <TextBlock Text="Email: info@poliklinika.ba&#10;Tel: +387 33 123 456" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+
+                </UniformGrid>
+
+            </StackPanel>
+
+        </ScrollViewer>
 
     </Grid>
 </Page>
